@@ -583,67 +583,16 @@ summary, textarea {
   }
 }
 
+@media screen and (max-device-width: 480px) {
+  .container-class > .main-class > .content, .container-class > .main-class > .right {
+    width: 100%;
+  }
+}
+
 .container-class > .footer-class {
   margin-bottom: 0;
 }
 
-.loading-mask {
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #F4F4F4;
-  top: 0;
-  height: 100%;
-  transition: all 1s;
-  transition-timing-function: ease;
-}
-
-.loading-mask.is-remove {
-  top: -20px;
-  height: 0;
-}
-
-.loading-sets {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -5px;
-  margin-left: -20px;
-}
-
-.loading {
-  width: 10px;
-  height: 10px;
-  background: #FFF;
-  border-radius: 100%;
-  float: left;
-  margin-right: 5px;
-}
-
-.loading-0 {
-  -webkit-animation: bounce 1s infinite ease;
-  -webkit-animation-delay: .1s;
-  background: #F44336;
-}
-
-.loading-1 {
-  -webkit-animation: bounce 1s infinite ease;
-  -webkit-animation-delay: .3s;
-  background: #4CAF50;
-}
-
-.loading-2 {
-  -webkit-animation: bounce 1s infinite ease;
-  -webkit-animation-delay: .5s;
-  background: #2196F3;
-}
-
-/*
-    使用方式
-    jass： */
 .btn {
   display: inline-block;
   padding: 8px;
@@ -3565,6 +3514,13 @@ p {
 
 .main-class > .right:nth-child(0n){
   float: right;
+}
+
+.main-class > .right > .fixed-block {
+  background: #FFF;
+  border: 1px solid #555;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .5rem;
 }
 
 .footer-class a {

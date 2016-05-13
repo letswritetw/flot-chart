@@ -23,6 +23,11 @@
 		@include tablet {
 			padding-top: 70px;
 		}
+		@include phones {
+			> .content, > .right {
+				width: 100%;
+			}
+		}
 	}
 
 	> .footer-class {

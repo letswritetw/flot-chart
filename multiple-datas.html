@@ -56,13 +56,15 @@ $(function() {
           <div id="chart" class="charts-block"></div>
         </main>
         <aside class="right">
-          <h4 class="_text-center">導覽列</h4>
-          <ul>
-            <li><a href="index.html">基本使用</a></li>
-            <li><a href="options.html">更多options項目</a></li>
-            <li><a href="multiple-datas.html">多組資料</a></li>
-            <li><a href="time.html">時間折線圖</a></li>
-          </ul>
+          <div data-desk-fix="10" data-mobile-fix="70" class="fixed-block">
+            <h4 class="_text-center">項目</h4>
+            <ul>
+              <li><a href="index.html">基本使用</a></li>
+              <li><a href="options.html">更多options項目</a></li>
+              <li><a href="multiple-datas.html">多組資料</a></li>
+              <li><a href="time.html">時間折線圖</a></li>
+            </ul>
+          </div>
         </aside>
       </main>
       <footer class="footer-class">
@@ -74,7 +76,14 @@ $(function() {
     <script src="assets/vendor/syntaxhighlighter/shCore.js"></script>
     <script src="assets/vendor/syntaxhighlighter/shBrushJScript.js"></script>
     <script src="assets/vendor/syntaxhighlighter/shBrushXml.js"></script>
-    <script>SyntaxHighlighter.all();</script>
+    <script src="assets/vendor/scrolltofixed/jquery-scrolltofixed-min.js"></script>
+    <script src="assets/js/sean-common.js"></script>
+    <script>
+      $(function() {
+      	fixScroll($('.fixed-block'), $('.footer-class'), 0);
+      	SyntaxHighlighter.all();
+      });
+    </script>
     <script src="assets/vendor/flot/jquery.flot.min.js"></script>
     <script src="assets/vendor/flot/jquery.flot.time.js"></script>
     <script>

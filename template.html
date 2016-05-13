@@ -31,5 +31,13 @@
     <script src="assets/vendor/syntaxhighlighter/shCore.js"></script>
     <script src="assets/vendor/syntaxhighlighter/shBrushJScript.js"></script>
     <script src="assets/vendor/syntaxhighlighter/shBrushXml.js"></script>
+    <script src="assets/vendor/scrolltofixed/jquery-scrolltofixed-min.js"></script>
+    <script src="assets/js/sean-common.js"></script>
+    <script>
+      $(function() {
+      	fixScroll($('.fixed-block'), $('.footer-class'), 0);
+      	SyntaxHighlighter.all();
+      });
+    </script>
   </body>
 </html>

@@ -25,12 +25,12 @@ p {
 }
 
 .main-class > .content {
-  width: calc(99.99% * 3/4 - (30px - 30px * 3/4));
+  width: calc(99.99% * 3/4 - (16px - 16px * 3/4));
 }
 
 .main-class > .content:nth-child(1n) {
   float: left;
-  margin-right: 30px;
+  margin-right: 16px;
   clear: none;
 }
 
@@ -38,22 +38,17 @@ p {
   margin-right: 0;
 }
 
-.main-class > .content:nth-child(4n) {
-  margin-right: 0;
+.main-class > .content:nth-child(0n) {
   float: right;
 }
 
-.main-class > .content:nth-child(4n + 1) {
-  clear: left;
-}
-
 .main-class > .right {
-  width: calc(99.99% * 1/4 - (30px - 30px * 1/4));
+  width: calc(99.99% * 1/4 - (16px - 16px * 1/4));
 }
 
 .main-class > .right:nth-child(1n) {
   float: left;
-  margin-right: 30px;
+  margin-right: 16px;
   clear: none;
 }
 
@@ -61,13 +56,15 @@ p {
   margin-right: 0;
 }
 
-.main-class > .right:nth-child(4n) {
-  margin-right: 0;
+.main-class > .right:nth-child(0n) {
   float: right;
 }
 
-.main-class > .right:nth-child(4n + 1) {
-  clear: left;
+.main-class > .right > .fixed-block {
+  background: #FFF;
+  border: 1px solid #555;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .5rem;
 }
 
 .footer-class a {

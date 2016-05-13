@@ -1,6 +1,8 @@
 $grey: #607D8B
 $white: rgba(white, .87)
 
+// @import helper/media
+
 body
 	background: #ECEFF1
 
@@ -19,11 +21,15 @@ p
 		lost-column: 3/4
 	> .right
 		lost-column: 1/4
+		> .fixed-block
+			background: #FFF
+			border: 1px solid #555
+			border: 1px solid rgba(black, .1)
+			border-radius: .5rem
 .footer-class a
 	color: $white
 	&:hover, &:focus
 		color: white
-
 .syntaxhighlighter
 	padding: 1rem
 

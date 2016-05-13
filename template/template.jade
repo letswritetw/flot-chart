@@ -47,4 +47,11 @@ html
 		script(src="assets/vendor/syntaxhighlighter/shCore.js")
 		script(src="assets/vendor/syntaxhighlighter/shBrushJScript.js")
 		script(src="assets/vendor/syntaxhighlighter/shBrushXml.js")
+		script(src="assets/vendor/scrolltofixed/jquery-scrolltofixed-min.js")
+		script(src="assets/js/sean-common.js")
+		script.
+			$(function() {
+				fixScroll($('.fixed-block'), $('.footer-class'), 0);
+				SyntaxHighlighter.all();
+			});
 		block js
