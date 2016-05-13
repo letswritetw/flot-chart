@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
@@ -55,3 +56,139 @@
   
   </body>
 </html>
+=======
+<html>
+  <head>
+    <title>基本使用 - flot demo</title>
+    <meta name="description" content="基本使用 - flot demo">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <link href="/assets/vendor/syntaxhighlighter/shCoreRDark.css" rel="stylesheet">
+    <link href="/assets/bundle/css/bundle.min.css" rel="stylesheet"><!--[if lt IE 9]>
+    <script src="/assets/vendor/modernizr.js"></script><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="/assets/vendor/excanvas.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container-class">
+      <header class="header-class">
+        <h1 class="_text-center">基本使用 - flot demo</h1>
+        <nav class="nav-class"></nav>
+      </header>
+      <main class="main-class">
+        <main class="content">
+          <h2>引用 ( <a href="http://www.flotcharts.org/" target="_blank">檔案下載</a> )</h2>
+          <pre class="brush: js">&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.flot.min.js"&gt;&lt;/script&gt;
+ 
+// 如果要有動畫，就要引用以下
+&lt;script src="jquery.flot.animator.min.js"&gt;&lt;/script&gt;
+ 
+&lt;!--[if lt IE 8]&gt;
+	&lt;script src="excanvas.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;</pre>
+          <h2>使用</h2>
+          <p>先用一個div帶上id:</p>
+          <pre class="brush: html">&lt;div class="charts-block"&gt;
+  &lt;div id="chart"&gt; &lt;div&gt;
+&lt;div&gt;</pre>
+          <p>建議是在外層包一個div，並設定寬、高，就像上面的.charts-block</p>
+          <p>使用的js如下：</p>
+          <pre class="brush: js">/*
+   target：要顯示的位置，在這裡就是#chart。
+   data：顯示的數據。
+   options：其它選項。
+*/
+$.plot('target', data, options);
+ 
+// 如果要有動畫，就改成以下
+$.plotAnimator('target', data, options);</pre>
+          <p>使用範例：</p>
+          <pre class="brush: js">var data = [
+  /*
+    資料格式是由多個資料序列組成的陣列：[series1, series2, series3, ...]
+    而每個序列的資料是由x軸和y軸的數值組合而成：[X, Y]
+  */
+  [1, 130], [2, 40], [3, 80], [4, 160], [5, 159], [6, 370], [7, 330]
+];
+ 
+var dataset = [{
+  label: "數據",
+  data: data
+ 
+  // 如要設定動畫，option如下
+  // animator: { start: 1, steps: 99, duration: 2000, direction: "right" },
+}];
+ 
+var options = {
+  series: {
+    lines: {
+      show: true
+    },
+    points: {
+      radius: 3,
+      show: true
+    }
+  }
+};
+ 
+$(function() {
+  $.plotAnimator($("#chart"), dataset, options);
+});</pre>
+          <p>呈現結果：</p>
+          <div id="chart" class="charts-block"></div>
+        </main>
+        <aside class="right">
+          <h4 class="_text-center">導覽列</h4>
+          <ul>
+            <li><a href="index.html">基本使用</a></li>
+            <li><a href="time.html">時間折線圖</a></li>
+          </ul>
+        </aside>
+      </main>
+      <footer class="footer-class">
+        <p>套件官網：<a href="http://www.flotcharts.org/" target="_blank">Flot</a></p>
+        <p>教學文章：<a href="http://www.jqueryflottutorial.com/tw/" target="_blank">jQuery Flot Tutorial</a></p>
+      </footer>
+    </div>
+    <script src="/assets/vendor/jquery.min.js"></script>
+    <script src="../assets/vendor/syntaxhighlighter/shCore.js"></script>
+    <script src="../assets/vendor/syntaxhighlighter/shBrushJScript.js"></script>
+    <script src="../assets/vendor/syntaxhighlighter/shBrushXml.js"></script>
+    <script>SyntaxHighlighter.all();</script>
+    <script src="/assets/vendor/flot/jquery.flot.min.js"></script>
+    <script src="../assets/vendor/flot/jquery.flot.animator.min.js"></script>
+    <script>
+      var data = [
+      	[1, 130], [2, 40], [3, 80], [4, 160], [5, 159], [6, 370], [7, 330]
+      ];
+      
+      var dataset = [{
+      	label: "數據",
+      	//- 動畫的option如下
+      	//- animator: { start: 1, steps: 99, duration: 2000, direction: "right" },
+      	data: data
+      }];
+      
+      var options = {
+      	series: {
+      		lines: {
+      			show: true
+      		},
+      		points: {
+      			radius: 3,
+      			show: true
+      		}
+      	}
+      };
+       
+      $(function() {
+      	$.plotAnimator($("#chart"), dataset, options);
+      });
+    </script>
+  </body>
+</html>
+>>>>>>> master

@@ -1,0 +1,32 @@
+// lost 的 global設定，要用的就解掉註解
+@lost gutter 16px;
+// @lost flexbox flex;
+@lost cycle none;
+
+
+// template的排版
+.container-class {
+	lost-center: 100vw;
+	// padding-right: 32px;
+	// padding-left: 32px;
+	height: 100%;
+
+	> .header-class,
+	> .main-class,
+	> .footer-class {
+		lost-row: 1/3;
+		@extend %clearfix;
+	}
+
+	> .main-class {
+		lost-center: 960px;
+		@include tablet {
+			padding-top: 70px;
+		}
+	}
+
+	> .footer-class {
+		// template-nav中，.bottom-footer下面還有一個div，所以margin-bottom不是0，要自己補
+		margin-bottom: 0;
+	}
+}

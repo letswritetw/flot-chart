@@ -1,0 +1,176 @@
+@import normalize
+
+// 內文、標題等的文字設定
+*, *::before, *::after
+	box-sizing: border-box
+
+html
+	font-size: $font-size-root
+	-webkit-overflow-scrolling: touch
+
+body
+	background-color: $body-bg
+	vertical-align: middle
+	line-height: $line-height
+	font-family: $font-family-sans-serif
+	letter-spacing: .08rem
+	font-weight: normal
+	font-size: $font-size-base
+	color: $body-color
+	
+
+
+
+
+
+// 設定全站為黑體字
+h1, h2, h3, h4, h5, h6, th,
+p, a, ul, ol, li, td, dl, dt, dd, input, button
+	font-family: $font-family-sans-serif
+
+
+
+
+
+// 標題的字型大小參照material design
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+	margin-bottom: $headings-margin-bottom
+	font-weight: $headings-font-weight
+	line-height: $headings-line-height
+	color: $headings-color
+
+h1
+	font-size: $font-size-h1
+h2
+	font-size: $font-size-h2
+h3
+	font-size: $font-size-h3
+h4
+	font-size: $font-size-h4
+h5
+	font-size: $font-size-h5
+h6
+	font-size: $font-size-h6
+
+p
+	margin-top: 0
+	margin-bottom: 1rem
+
+ol, ul, dl
+	margin-top: 0
+	margin-bottom: 1rem
+
+ol ol, ul ul, ol ul, ul ol
+	margin-bottom: 0
+
+dt
+	font-weight: bold
+
+dd
+	margin-bottom: .5rem
+	margin-left: 0 // 移除瀏覽器預設
+
+small, .small
+	font-size: 80%
+	font-weight: normal
+
+
+
+
+
+// 設定超連結
+a
+	color: $a-link-color
+	+hover
+		color: $a-hover-color
+		text-decoration: none
+
+
+
+
+
+// 設定圖片
+figure
+	margin: 0 0 1rem
+img
+	vertical-align: middle
+
+// table設定
+table, th, tr, td
+	border: $table-border
+table
+	width: 100%
+th, td
+	padding: $table-padding-vertical $table-padding-horizontal
+th
+	text-align: center
+
+
+
+
+
+// form設定
+label
+	display: inline-block
+	margin-bottom: .5rem
+
+button:focus
+	outline: 1px dotted
+	outline: 5px auto -webkit-focus-ring-color
+
+
+input, button, select, textarea
+	margin: 0
+	line-height: inherit
+	border-radius: 0
+	outline: none
+
+textarea
+	resize: vertical
+	outline: none
+
+fieldset
+	min-width: 0
+	padding: 0
+	margin: 0
+	border: 0
+
+legend
+	display: block
+	width: 100%
+	padding: 0
+	margin-bottom: .5rem
+	font-size: 1.5rem
+	line-height: inherit
+
+input[type="search"]
+	box-sizing: inherit
+	-webkit-appearance: none
+
+output
+	display: inline-block
+
+[hidden]
+	display: none !important
+
+	
+
+
+
+
+// hr設定
+hr
+	margin: 11px 2rem 12px
+	border: 0
+	border-top: 1px solid rgba(#CCC, $opacity-md)
+
+
+
+
+
+// 清除行動裝置點擊時的bug
+a, area,
+button, [role="button"], input, label, select,
+summary, textarea
+  touch-action: manipulation

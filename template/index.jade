@@ -1,0 +1,110 @@
+extends template
+
+//- 修改網頁標題、描述
+block config
+	- var pageTitle = '基本使用 - flot demo'
+	- var description = '基本使用 - flot demo'
+	- var h1 = '基本使用 - flot demo'
+
+block main
+	main.content
+		h2 引用 ( 
+			a(href="http://www.flotcharts.org/", target="_blank") 檔案下載
+			|  )
+		pre(class="brush: js")
+			| &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+			| &lt;script src="jquery.flot.min.js"&gt;&lt;/script&gt;
+			|  
+			| // 如果要有動畫，就要引用以下
+			| &lt;script src="jquery.flot.animator.min.js"&gt;&lt;/script&gt;
+			| 
+			| &lt;!--[if lt IE 8]&gt;
+			| 	&lt;script src="excanvas.js"&gt;&lt;/script&gt;
+			| &lt;![endif]--&gt;
+		h2 使用
+		p 先用一個div帶上id:
+		pre(class="brush: html")
+			| &lt;div class="charts-block"&gt;
+			|   &lt;div id="chart"&gt; &lt;div&gt;
+			| &lt;div&gt;
+		p 建議是在外層包一個div，並設定寬、高，就像上面的.charts-block
+		p 使用的js如下：
+		pre(class="brush: js")
+			| /*
+			|    target：要顯示的位置，在這裡就是#chart。
+			|    data：顯示的數據。
+			|    options：其它選項。
+			| */
+			| $.plot('target', data, options);
+			|  
+			| // 如果要有動畫，就改成以下
+			| $.plotAnimator('target', data, options);
+		p 使用範例：
+		pre(class="brush: js")
+			| var data = [
+			|   /*
+			|     資料格式是由多個資料序列組成的陣列：[series1, series2, series3, ...]
+			|     而每個序列的資料是由x軸和y軸的數值組合而成：[X, Y]
+			|   */
+			|   [1, 130], [2, 40], [3, 80], [4, 160], [5, 159], [6, 370], [7, 330]
+			| ];
+			|  
+			| var dataset = [{
+			|   label: "數據",
+			|   data: data
+			|  
+			|   // 如要設定動畫，option如下
+			|   // animator: { start: 1, steps: 99, duration: 2000, direction: "right" },
+			| }];
+			|  
+			| var options = {
+			|   series: {
+			|     lines: {
+			|       show: true
+			|     },
+			|     points: {
+			|       radius: 3,
+			|       show: true
+			|     }
+			|   }
+			| };
+			|  
+			| $(function() {
+			|   $.plotAnimator($("#chart"), dataset, options);
+			| });
+		p 呈現結果：
+		#chart.charts-block
+	include partials/_right.jade
+
+block js
+	script.
+		SyntaxHighlighter.all();
+	script(src="/assets/vendor/flot/jquery.flot.min.js")
+	script(src="../assets/vendor/flot/jquery.flot.animator.min.js")
+	script.
+		var data = [
+			[1, 130], [2, 40], [3, 80], [4, 160], [5, 159], [6, 370], [7, 330]
+		];
+
+		var dataset = [{
+			label: "數據",
+			//- 動畫的option如下
+			//- animator: { start: 1, steps: 99, duration: 2000, direction: "right" },
+			data: data
+		}];
+
+		var options = {
+			series: {
+				lines: {
+					show: true
+				},
+				points: {
+					radius: 3,
+					show: true
+				}
+			}
+		};
+		 
+		$(function() {
+			$.plotAnimator($("#chart"), dataset, options);
+		});
