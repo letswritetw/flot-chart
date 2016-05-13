@@ -1,0 +1,79 @@
+extends template
+
+//- 修改網頁標題、描述
+block config
+	- var pageTitle = '多組資料 - flot demo'
+	- var description = '多組資料 - flot demo'
+	- var h1 = '多組資料 - flot demo'
+
+block main
+	main.content
+		h2 多組資料
+		p 多組資料時，寫成雜湊物件的樣式，如下：
+		pre(class="brush: js")
+			| var data_1 = [
+			|   [1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
+			| ];
+			|  
+			| var data_2 = [
+			|    [1325347200000, 5], [1328025600000, 12], [1330531200000, 7], [1333209600000, 25]
+			|  ];
+			|  
+			| var dataset = [
+			|   {
+			|      label: "資料1",
+			|      data: data_1
+			|   },
+			|   {
+			|      label: "資料2",
+			|      data: data_2
+			|   },
+			];
+			|  
+			| var options = {
+			|   xaxis: {
+			|     mode: "time"
+			|  }
+			| };
+			|  
+			| $(function() {
+			|   $.plot($("#chart"), dataset, options);
+			| });
+		p 呈現結果：
+		#chart.charts-block
+	include partials/_right.jade
+
+block js
+	script.
+		SyntaxHighlighter.all();
+	script(src="assets/vendor/flot/jquery.flot.min.js")
+	script(src="assets/vendor/flot/jquery.flot.time.js")
+	script.
+		var data_1 = [
+			[1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
+		];
+
+		var data_2 = [
+			[1325347200000, 5], [1328025600000, 12], [1330531200000, 7], [1333209600000, 25]
+		];
+
+		var dataset = [
+			{
+				label: "資料1",
+				data: data_1
+			},
+			{
+				label: "資料2",
+				data: data_2
+			},
+		];
+
+		var options = {
+			xaxis: {
+				mode: "time"
+			}
+		};
+		 
+		$(function() {
+			$.plot($("#chart"), dataset, options);
+		});

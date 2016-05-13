@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>時間折線圖 - flot demo</title>
-    <meta name="description" content="時間折線圖 - flot demo">
+    <title>多組資料 - flot demo</title>
+    <meta name="description" content="多組資料 - flot demo">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
@@ -17,41 +17,31 @@
   <body>
     <div class="container-class">
       <header class="header-class">
-        <h1 class="_text-center">時間折線圖 - flot demo</h1>
+        <h1 class="_text-center">多組資料 - flot demo</h1>
         <nav class="nav-class"></nav>
       </header>
       <main class="main-class">
         <main class="content">
-          <h2>時間折線圖</h2>
-          <ol>
-            <li>時間格式為timestamps格式。</li>
-            <li>axes裡的mode必須設定為time。</li>
-            <li>需引用jquery.flot.time.js。</li>
-          </ol>
-          <p>timestamps用法</p>
-          <pre class="brush: js">// 取得從1970/1/1 00:00:00開始計算的毫秒總量(時間戳記)
-var d = new Date(2012,1,2); // 裡面可以寫時間，沒有寫的話就是「現在」
-var time = d.getTime();</pre>
-          <p>引用</p>
-          <pre class="brush: js">&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="jquery.flot.min.js"&gt;&lt;/script&gt;
-&lt;script src="jquery.flot.time.js"&gt;&lt;/script&gt;
- 
-// 如果要有動畫，就要引用以下
-&lt;script src="jquery.flot.animator.min.js"&gt;&lt;/script&gt;
- 
-&lt;!--[if lt IE 8]&gt;
-	&lt;script src="excanvas.js"&gt;&lt;/script&gt;
-&lt;![endif]--&gt;</pre>
-          <p>使用範例：</p>
-          <pre class="brush: js">var data = [
+          <h2>多組資料</h2>
+          <p>多組資料時，寫成雜湊物件的樣式，如下：</p>
+          <pre class="brush: js">var data_1 = [
   [1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
 ];
  
-var dataset = [{
-  label: "時間數據",
-  data: data
-}];
+var data_2 = [
+   [1325347200000, 5], [1328025600000, 12], [1330531200000, 7], [1333209600000, 25]
+ ];
+ 
+var dataset = [
+  {
+     label: "資料1",
+     data: data_1
+  },
+  {
+     label: "資料2",
+     data: data_2
+  },
+];
  
 var options = {
   xaxis: {
@@ -87,14 +77,24 @@ $(function() {
     <script src="assets/vendor/flot/jquery.flot.min.js"></script>
     <script src="assets/vendor/flot/jquery.flot.time.js"></script>
     <script>
-      var data = [
+      var data_1 = [
       	[1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
       ];
       
-      var dataset = [{
-      	label: "時間數據",
-      	data: data
-      }];
+      var data_2 = [
+      	[1325347200000, 5], [1328025600000, 12], [1330531200000, 7], [1333209600000, 25]
+      ];
+      
+      var dataset = [
+      	{
+      		label: "資料1",
+      		data: data_1
+      	},
+      	{
+      		label: "資料2",
+      		data: data_2
+      	},
+      ];
       
       var options = {
       	xaxis: {
