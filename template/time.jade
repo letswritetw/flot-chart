@@ -1,0 +1,80 @@
+extends template
+
+//- 修改網頁標題、描述
+block config
+	- var pageTitle = '時間折線圖 - flot demo'
+	- var description = '時間折線圖 - flot demo'
+	- var h1 = '時間折線圖 - flot demo'
+
+block main
+	main.content
+		h2 時間折線圖
+		ol
+			li 時間格式為timestamps格式。
+			li axes裡的mode必須設定為time。
+			li 需引用jquery.flot.time.js。
+		p timestamps用法
+		pre(class="brush: js")
+			| // 取得從1970/1/1 00:00:00開始計算的毫秒總量(時間戳記)
+			| var d = new Date(2012,1,2); // 裡面可以寫時間，沒有寫的話就是「現在」
+			| var time = d.getTime();
+		p 引用
+		pre(class="brush: js")
+			| &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+			| &lt;script src="jquery.flot.min.js"&gt;&lt;/script&gt;
+			| &lt;script src="jquery.flot.time.js"&gt;&lt;/script&gt;
+			|  
+			| // 如果要有動畫，就要引用以下
+			| &lt;script src="jquery.flot.animator.min.js"&gt;&lt;/script&gt;
+			| 
+			| &lt;!--[if lt IE 8]&gt;
+			| 	&lt;script src="excanvas.js"&gt;&lt;/script&gt;
+			| &lt;![endif]--&gt;
+		p 使用範例：
+		pre(class="brush: js")
+			| var data = [
+			|   [1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
+			| ];
+			|  
+			| var dataset = [{
+			|   label: "時間數據",
+			|   data: data
+			| }];
+			|  
+			| var options = {
+			|   xaxis: {
+			|     mode: "time"
+			|  }
+			| };
+			|  
+			| $(function() {
+			|   $.plot($("#chart"), dataset, options);
+			| });
+		p 呈現結果：
+		#chart.charts-block
+	include partials/_right.jade
+
+block js
+	script.
+		SyntaxHighlighter.all();
+	script(src="/assets/vendor/flot/jquery.flot.min.js")
+	script(src="/assets/vendor/flot/jquery.flot.time.js")
+	script.
+		var data = [
+			[1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
+		];
+
+		var dataset = [{
+			label: "時間數據",
+			data: data
+		}];
+
+		var options = {
+			xaxis: {
+				mode: "time"
+			}
+		};
+		 
+		$(function() {
+			$.plot($("#chart"), dataset, options);
+		});

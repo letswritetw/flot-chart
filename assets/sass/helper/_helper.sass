@@ -1,0 +1,149 @@
+// lost
+%clearfix
+	lost-utility: clearfix
+
+
+
+
+
+// 區塊
+._center-block
+	display: block
+	margin-left: auto
+	margin-right: auto
+
+._pull-right
+	float: right !important
+._pull-left
+	float: left !important
+
+._hide
+	display: none !important
+._show
+	display: block !important
+._invisible
+	visibility: hidden
+._hidden
+	display: none !important
+
+
+
+
+
+// ul、ol
+=list-inline
+	padding-left: 0
+	margin-left: -5px
+	list-style: none
+	> li
+		display: inline-block
+		padding-right: 5px
+		padding-left: 5px
+%list-inline
+	+list-inline
+
+._list-unstyled
+	padding-left: 0
+	list-style: none
+
+
+
+
+
+// 文字
+._responsive
+	font-size: responsive
+._text-right
+	text-align: left
+._text-center
+	text-align: center
+._text-right
+	text-align: right
+._text-justify
+	text-align: justify
+._text-nowrap
+	white-space: nowrap
+._text-lowercase
+	text-transform: lowercase
+._text-uppercase
+	text-transform: uppercase
+._text-capitalize
+	text-transform: capitalize // 只有字首大寫
+._text-hide
+	font: 0/0 a
+	color: transparent
+	text-shadow: none
+	background-color: transparent
+	border: 0
+
+
+
+
+
+// 單行省略
+=text-ellipsis
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+%text-ellipsis
+	+text-ellipsis
+
+// 多行省略
+=text-more-ellipsis
+	display: -webkit-box
+	-webkit-line-clamp: 2
+	-webkit-box-orient: vertical
+%text-more-ellipsis
+	+text-more-ellipsis
+
+// 不斷行
+=nowrap
+	white-space: nowrap
+%no-wrap
+	+nowrap
+
+
+
+
+
+// 超連結
+=hover
+	&:hover, &:focus
+		@content
+
+
+
+
+
+// 圖片
+=img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+%img-responsive
+	+img-responsive
+
+
+
+
+
+// 陰影
+=box-shadow-z1
+	box-shadow: $z1
+%box-shadow-z1
+	+box-shadow-z1
+
+=box-shadow-z2
+	box-shadow: $z2
+%box-shadow-z2
+	+box-shadow-z2
+
+=box-shadow-z3
+	box-shadow: $z3
+%box-shadow-z3
+	+box-shadow-z3
+
+=box-shadow-z4
+	box-shadow: $z4
+%box-shadow-z4
+	+box-shadow-z4

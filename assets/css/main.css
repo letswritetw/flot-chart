@@ -1,0 +1,86 @@
+body {
+  background: #ECEFF1;
+}
+
+h2 {
+  color: #01579B;
+}
+
+p {
+  margin-bottom: 8px;
+  margin-bottom: .5rem;
+}
+
+.header-class, .footer-class {
+  padding: 16px;
+  padding: 1rem;
+  background: #607D8B;
+  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.main-class {
+  padding-bottom: 16px;
+  padding-bottom: 1rem;
+}
+
+.main-class > .content {
+  width: calc(99.99% * 3/4 - (16px - 16px * 3/4));
+}
+
+.main-class > .content:nth-child(1n) {
+  float: left;
+  margin-right: 16px;
+  clear: none;
+}
+
+.main-class > .content:last-child {
+  margin-right: 0;
+}
+
+.main-class > .content:nth-child(0n) {
+  float: right;
+}
+
+.main-class > .right {
+  width: calc(99.99% * 1/4 - (16px - 16px * 1/4));
+}
+
+.main-class > .right:nth-child(1n) {
+  float: left;
+  margin-right: 16px;
+  clear: none;
+}
+
+.main-class > .right:last-child {
+  margin-right: 0;
+}
+
+.main-class > .right:nth-child(0n) {
+  float: right;
+}
+
+.footer-class a {
+  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.footer-class a:hover, .footer-class a:focus {
+  color: white;
+}
+
+.syntaxhighlighter {
+  padding: 16px;
+  padding: 1rem;
+}
+
+.charts-block {
+  width: 100%;
+  height: 300px;
+}
+
+.charts-block table {
+  width: auto;
+}
+
+/*# sourceMappingURL=main.css.map */

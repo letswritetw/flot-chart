@@ -1,0 +1,36 @@
+/*
+Jade 使用方式
+.iframe-youtube
+	// fancybox的嵌入影片。"?autoplay=1" <== 點開後直接播放
+	a(class="youtube fancybox.iframe" href="https://www.youtube-nocookie.com/embed/tAWPPcPaiQo?autoplay=1")
+		// 影片縮圖
+			圖片的src網址為：http://img.youtube.com/vi/xxxxxIDxxxxx/0.jpg
+			其中「****ID****」就是youtube網址中的最後那一串
+		img(src="http://img.youtube.com/vi/tAWPPcPaiQo/0.jpg")
+*/
+
+.iframe-youtube {
+	@extend ._text-center;
+	> a {
+		position: relative;
+		display: inline-block;
+		&::before {
+			content: "";
+			display: block;
+			position: absolute 0;
+			// 圖片網址：https://www.iconfinder.com/icons/317714/video_youtube_icon#size=64
+			background-image: url('../img/utility/icon-youtube.png');
+			background-position: center center;
+			background-repeat: no-repeat;
+			opacity: $opacity-sm;
+			transition: $transition-default;
+		}
+		&:hover::before {
+			opacity: 1;
+		}
+	}
+	> a > img {
+		@extend %img-responsive;
+		@extend ._center-block;
+	}
+}

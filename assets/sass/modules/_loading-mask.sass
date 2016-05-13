@@ -1,0 +1,78 @@
+// 設定顏色變數
+$mask-red: #F44336
+$mask-green: #4CAF50
+$mask-blue: #2196F3
+
+
+.loading-mask
+    position: fixed
+    z-index: 9999
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: #F4F4F4
+    top: 0
+    height: 100%
+    -webkit-transition: all 1s
+    // Safari
+    transition: all 1s
+    -webkit-transition-timing-function: ease
+    // Safari and Chrome
+    transition-timing-function: ease
+    &.is-remove
+        top: -20px
+        height: 0
+
+.loading-sets
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -5px
+    margin-left: -20px
+
+.loading
+    width: 10px
+    height: 10px
+    background: #FFF
+    border-radius: 100%
+    float: left
+    margin-right: 5px
+
+.loading-0
+    -webkit-animation: bounce 1s infinite ease
+    -webkit-animation-delay: .1s
+    background: $mask-red
+
+.loading-1
+    -webkit-animation: bounce 1s infinite ease
+    -webkit-animation-delay: .3s
+    background: $mask-green
+
+.loading-2
+    -webkit-animation: bounce 1s infinite ease
+    -webkit-animation-delay: .5s
+    background: $mask-blue
+@-webkit-keyframes bounce
+    0%, 100%
+        opacity: 1
+
+    60%
+        opacity: .0
+
+/*
+    使用方式
+    jass：
+    //  頁面讀取中
+    .js-loading-mask.loading-mask
+        .loading-sets
+            .loading.loading-0
+            .loading.loading-1
+            .loading.loading-2
+
+    jquery：
+    window.onload = function() {
+        setTimeout(function() {
+            $('.js-loading-mask').addClass('is-remove');
+        }, 800);
+    };
