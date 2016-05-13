@@ -1,0 +1,104 @@
+extends template
+
+//- 修改網頁標題、描述
+block config
+	- var pageTitle = '更多options項目 - flot demo'
+	- var description = '更多options項目 - flot demo'
+	- var h1 = '更多options項目 - flot demo'
+
+block main
+	main.content
+		h2 更多option項目
+		pre(class="brush: js")
+			| series: {
+			|   // 折線圖、點圖及直條圖
+			|   lines, points, bars: {
+			|     // 是否顯示
+			|     show: boolean
+			|     // 線寬
+			|     lineWidth: number
+			|     // 是否填滿顏色
+			|     fill: boolean or number
+			|     // 填色的顏色(可用漸層)
+			|     fillColor: null or color / gradient
+			| 
+			|     // 此屬性只有折線圖能用
+			|     steps: boolean
+			|   }
+			| 
+			|   // 資料點
+			|   points: {
+			|     // 資料點的半徑大小
+			|     radius: number
+			|     // 資料點的形狀, 預設為circle
+			|     // 支援其他形狀如square、diamond、triangle、cross, 不過必須加入jquery.flot.symbol.js外掛程式才能使用
+			|     symbol: "circle" or function
+			|   }
+			| 
+			|   // 直條圖
+			|   bars: {
+			|     // 直條寬度
+			|     barWidth: number
+			|     // 設置直條對齊的方向
+			|     align: "left", "right" or "center"
+			|     // 若為true, 則以橫條圖顯示
+			|     horizontal: boolean
+			|   }
+			|   // 設定陰影大小
+			|   shadowSize: number
+			| }
+			| 
+			| // 線的顏色, 如series1對應color1, series2對應color2, 依此類推
+			| colors: [color1, color2, ...]
+		p 呈現結果：
+		#chart.charts-block
+		h4 補充「fillColor」的漸層用法
+		p fillColor 可以使用單色漸層或雙色漸層。
+		p 單色漸層
+		pre(class="brush: js")
+			| fillColor: { 
+			|   colors: [{ opacity: 0.7 }, { opacity: 0.1}]
+			| }
+		p 雙色漸層
+		pre(class="brush: js")
+			| fillColor: { 
+			|   colors: ["#000", "#fff"] 
+			| }
+	include partials/_right.jade
+
+block js
+	script.
+		SyntaxHighlighter.all();
+	script(src="assets/vendor/flot/jquery.flot.min.js")
+	script(src="assets/vendor/flot/jquery.flot.time.js")
+	script.
+		var data_1 = [
+			[1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
+		];
+
+		var data_2 = [
+			[1325347200000, 5], [1328025600000, 12], [1330531200000, 7], [1333209600000, 25]
+		];
+
+		var dataset = [{
+			label: "資料1",
+			data: data_1
+		}];
+
+		var options = {
+			xaxis: {
+				mode: "time"
+			},
+			series: {
+				lines: {
+					show: true,
+					fill: true,
+					fillColor: "#2196F3"
+				}
+			},
+			colors: ['#0D47A1']
+		};
+		 
+		$(function() {
+			$.plot($("#chart"), dataset, options);
+		});

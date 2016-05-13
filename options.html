@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>時間折線圖 - flot demo</title>
-    <meta name="description" content="時間折線圖 - flot demo">
+    <title>更多options項目 - flot demo</title>
+    <meta name="description" content="更多options項目 - flot demo">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
@@ -17,53 +17,64 @@
   <body>
     <div class="container-class">
       <header class="header-class">
-        <h1 class="_text-center">時間折線圖 - flot demo</h1>
+        <h1 class="_text-center">更多options項目 - flot demo</h1>
         <nav class="nav-class"></nav>
       </header>
       <main class="main-class">
         <main class="content">
-          <h2>時間折線圖</h2>
-          <ol>
-            <li>時間格式為timestamps格式。</li>
-            <li>axes裡的mode必須設定為time。</li>
-            <li>需引用jquery.flot.time.js。</li>
-          </ol>
-          <p>timestamps用法</p>
-          <pre class="brush: js">// 取得從1970/1/1 00:00:00開始計算的毫秒總量(時間戳記)
-var d = new Date(2012,1,2); // 裡面可以寫時間，沒有寫的話就是「現在」
-var time = d.getTime();</pre>
-          <p>引用</p>
-          <pre class="brush: js">&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="jquery.flot.min.js"&gt;&lt;/script&gt;
-&lt;script src="jquery.flot.time.js"&gt;&lt;/script&gt;
+          <h2>更多option項目</h2>
+          <pre class="brush: js">series: {
+  // 折線圖、點圖及直條圖
+  lines, points, bars: {
+    // 是否顯示
+    show: boolean
+    // 線寬
+    lineWidth: number
+    // 是否填滿顏色
+    fill: boolean or number
+    // 填色的顏色(可用漸層)
+    fillColor: null or color / gradient
  
-// 如果要有動畫，就要引用以下
-&lt;script src="jquery.flot.animator.min.js"&gt;&lt;/script&gt;
+    // 此屬性只有折線圖能用
+    steps: boolean
+  }
  
-&lt;!--[if lt IE 8]&gt;
-	&lt;script src="excanvas.js"&gt;&lt;/script&gt;
-&lt;![endif]--&gt;</pre>
-          <p>使用範例：</p>
-          <pre class="brush: js">var data = [
-  [1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
-];
+  // 資料點
+  points: {
+    // 資料點的半徑大小
+    radius: number
+    // 資料點的形狀, 預設為circle
+    // 支援其他形狀如square、diamond、triangle、cross, 不過必須加入jquery.flot.symbol.js外掛程式才能使用
+    symbol: "circle" or function
+  }
  
-var dataset = [{
-  label: "時間數據",
-  data: data
-}];
+  // 直條圖
+  bars: {
+    // 直條寬度
+    barWidth: number
+    // 設置直條對齊的方向
+    align: "left", "right" or "center"
+    // 若為true, 則以橫條圖顯示
+    horizontal: boolean
+  }
+  // 設定陰影大小
+  shadowSize: number
+}
  
-var options = {
-  xaxis: {
-    mode: "time"
- }
-};
- 
-$(function() {
-  $.plot($("#chart"), dataset, options);
-});</pre>
+// 線的顏色, 如series1對應color1, series2對應color2, 依此類推
+colors: [color1, color2, ...]</pre>
           <p>呈現結果：</p>
           <div id="chart" class="charts-block"></div>
+          <h4>補充「fillColor」的漸層用法</h4>
+          <p>fillColor 可以使用單色漸層或雙色漸層。</p>
+          <p>單色漸層</p>
+          <pre class="brush: js">fillColor: { 
+  colors: [{ opacity: 0.7 }, { opacity: 0.1}]
+}</pre>
+          <p>雙色漸層</p>
+          <pre class="brush: js">fillColor: { 
+  colors: ["#000", "#fff"] 
+}</pre>
         </main>
         <aside class="right">
           <h4 class="_text-center">導覽列</h4>
@@ -88,19 +99,31 @@ $(function() {
     <script src="assets/vendor/flot/jquery.flot.min.js"></script>
     <script src="assets/vendor/flot/jquery.flot.time.js"></script>
     <script>
-      var data = [
+      var data_1 = [
       	[1325347200000, 60], [1328025600000, 100], [1330531200000, 15], [1333209600000, 50]
       ];
       
+      var data_2 = [
+      	[1325347200000, 5], [1328025600000, 12], [1330531200000, 7], [1333209600000, 25]
+      ];
+      
       var dataset = [{
-      	label: "時間數據",
-      	data: data
+      	label: "資料1",
+      	data: data_1
       }];
       
       var options = {
       	xaxis: {
       		mode: "time"
-      	}
+      	},
+      	series: {
+      		lines: {
+      			show: true,
+      			fill: true,
+      			fillColor: "#2196F3"
+      		}
+      	},
+      	colors: ['#0D47A1']
       };
        
       $(function() {
